@@ -22,4 +22,4 @@ After that we’ll:
 2. Deploy it to an EC2 instance via CLI (tomorrow).  
 3. Begin Docker fundamentals.
 
-Ping me once `tracker.sh` is running or if you hit any bumps, and we’ll keep rolling! we will continue later
+Ping me once `tracker.sh` is running or if you hit any bumps, and we’ll keep rolling! we will continue later  
