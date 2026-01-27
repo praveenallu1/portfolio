@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="pt-20 min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-100">
+  <section id="home" class="pt-24 min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-100">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">

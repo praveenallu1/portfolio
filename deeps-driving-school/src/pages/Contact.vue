@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
-    <section class="pt-20 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div class="container mx-auto px-4">
         <div class="text-center">
           <h1 class="text-5xl font-bold text-gray-900 mb-6">
