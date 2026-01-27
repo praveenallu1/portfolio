@@ -32,37 +32,43 @@
         <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Contact Information</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="card text-center hover:scale-105 transition-transform">
+          <div class="card text-center hover:scale-105 transition-transform min-h-[400px] flex flex-col">
             <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
               <Phone class="w-10 h-10 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Phone</h3>
             <p class="text-xl text-primary font-semibold mb-4">+61 430 191 324</p>
             <p class="text-gray-600 mb-4">Call us for immediate assistance</p>
-            <p class="text-sm text-gray-500">Available 7 days a week</p>
-            <a href="tel:+61430191324" class="btn-primary mt-4">Call Now</a>
+            <p class="text-sm text-gray-500 mb-4">Available 7 days a week</p>
+            <div class="mt-auto">
+              <a href="tel:+61430191324" class="btn-primary w-full">Call Now</a>
+            </div>
           </div>
           
-          <div class="card text-center hover:scale-105 transition-transform">
+          <div class="card text-center hover:scale-105 transition-transform min-h-[400px] flex flex-col">
             <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
               <Mail class="w-10 h-10 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Email</h3>
             <p class="text-xl text-primary font-semibold mb-4">info@deepsdrivingschool.com.au</p>
             <p class="text-gray-600 mb-4">Send us your questions</p>
-            <p class="text-sm text-gray-500">We respond within 24 hours</p>
-            <a href="mailto:info@deepsdrivingschool.com.au" class="btn-primary mt-4">Send Email</a>
+            <p class="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
+            <div class="mt-auto">
+              <a href="mailto:info@deepsdrivingschool.com.au" class="btn-primary w-full">Send Email</a>
+            </div>
           </div>
           
-          <div class="card text-center hover:scale-105 transition-transform">
+          <div class="card text-center hover:scale-105 transition-transform min-h-[400px] flex flex-col">
             <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
               <MapPin class="w-10 h-10 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-gray-900 mb-4">Service Area</h3>
             <p class="text-xl text-primary font-semibold mb-4">South East Melbourne</p>
             <p class="text-gray-600 mb-4">Multiple pickup locations</p>
-            <p class="text-sm text-gray-500">Box Hill to Frankston</p>
-            <button class="btn-primary mt-4">View Areas</button>
+            <p class="text-sm text-gray-500 mb-4">Box Hill to Frankston</p>
+            <div class="mt-auto">
+              <button class="btn-primary w-full">View Areas</button>
+            </div>
           </div>
         </div>
       </div>
