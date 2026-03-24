@@ -2,8 +2,12 @@
   <nav class="fixed top-0 w-full bg-white shadow-md z-50">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
-        <div class="flex items-center space-x-2">
-          <Car class="w-8 h-8 text-primary" />
+        <div class="flex items-center space-x-3">
+          <img 
+            src="/images/hero/515245978_1304293228367403_8546177120491534100_n.jpg" 
+            alt="Deep's Driving School Logo"
+            class="h-10 w-auto object-contain"
+          />
           <span class="text-xl font-bold text-gray-800 hidden sm:block">Deep's Driving School</span>
           <span class="text-xl font-bold text-gray-800 sm:hidden">DDS</span>
         </div>
@@ -41,7 +45,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Car, Menu } from 'lucide-vue-next'
+import { Menu } from 'lucide-vue-next'
 
 const mobileMenuOpen = ref(false)
 
