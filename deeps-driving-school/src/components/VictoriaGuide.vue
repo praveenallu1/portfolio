@@ -123,7 +123,7 @@
       <div class="mt-12 text-center">
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Start Your License Journey?</h3>
         <p class="text-gray-600 mb-6">Our experienced instructors guide you through every step</p>
-        <button class="btn-primary text-lg">Get Started Today</button>
+        <router-link to="/contact" class="btn-primary text-lg inline-block">Get Started Today</router-link>
       </div>
     </div>
   </section>

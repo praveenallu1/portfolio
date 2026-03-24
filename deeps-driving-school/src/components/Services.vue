@@ -64,7 +64,7 @@
           <p class="text-gray-600 mb-6">
             Available upon request. Perfect for licensed drivers who want to refine skills, regain confidence, or adjust to Victorian road rules.
           </p>
-          <button class="btn-primary">Contact for Details</button>
+          <router-link to="/contact" class="btn-primary inline-block">Contact for Details</router-link>
         </div>
       </div>
     </div>

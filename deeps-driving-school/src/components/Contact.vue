@@ -129,13 +129,17 @@
               ></textarea>
             </div>
             
-            <button type="submit" class="btn-primary w-full text-lg">
-              Send Message
+            <button type="submit" class="btn-primary w-full text-lg" :disabled="isLoading">
+              {{ isLoading ? 'Sending...' : 'Send Message' }}
             </button>
           </form>
           
           <div v-if="showSuccess" class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
             <p class="text-green-700">Thank you for your message! We'll contact you within 24 hours.</p>
+          </div>
+          
+          <div v-if="showError" class="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <p class="text-red-700">There was an error sending your message. Please call us directly at +61 430 191 324</p>
           </div>
         </div>
       </div>
@@ -143,10 +147,10 @@
       <div class="mt-16 text-center">
         <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Start Driving?</h3>
         <p class="text-gray-600 mb-6">Call us now for immediate assistance or to book your first lesson</p>
-        <button class="btn-primary text-lg">
+        <a href="tel:+61430191324" class="btn-primary text-lg inline-block">
           <Phone class="w-5 h-5 inline mr-2" />
           Call Now: +61 430 191 324
-        </button>
+        </a>
       </div>
     </div>
   </section>
@@ -165,26 +169,62 @@ const form = ref({
 })
 
 const showSuccess = ref(false)
+const showError = ref(false)
+const isLoading = ref(false)
 
-const handleSubmit = () => {
-  // In a real app, this would send the data to a server
-  console.log('Form submitted:', form.value)
+const handleSubmit = async () => {
+  isLoading.value = true
   
-  // Show success message
-  showSuccess.value = true
-  
-  // Reset form
-  form.value = {
-    name: '',
-    phone: '',
-    email: '',
-    service: '',
-    message: ''
+  try {
+    // Send email via EmailJS
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        service_id: 'service_deeps_driving',
+        template_id: 'template_contact_form',
+        user_id: 'YOUR_EMAILJS_PUBLIC_KEY',
+        template_params: {
+          to_email: 'info@deepsdrivingschool.com.au',
+          from_name: form.value.name,
+          from_email: form.value.email,
+          phone: form.value.phone,
+          service: form.value.service,
+          message: form.value.message,
+          reply_to: form.value.email
+        }
+      })
+    })
+    
+    if (response.ok) {
+      showSuccess.value = true
+      form.value = {
+        name: '',
+        phone: '',
+        email: '',
+        service: '',
+        message: ''
+      }
+      
+      setTimeout(() => {
+        showSuccess.value = false
+      }, 5000)
+    } else {
+      showError.value = true
+      setTimeout(() => {
+        showError.value = false
+      }, 5000)
+    }
+  } catch (error) {
+    console.error('Error sending email:', error)
+    showError.value = true
+    setTimeout(() => {
+      showError.value = false
+    }, 5000)
+  } finally {
+    isLoading.value = false
   }
-  
-  // Hide success message after 5 seconds
-  setTimeout(() => {
-    showSuccess.value = false
-  }, 5000)
 }
 </script>
