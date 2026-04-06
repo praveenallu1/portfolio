@@ -1,16 +1,16 @@
 <template>
-  <section id="services" class="py-20 bg-gray-50">
+  <section id="services" class="py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <div class="text-center mb-16 animate-fade-in-up">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
           From nervous beginners to experienced drivers needing a refresher, we have the perfect program for everyone
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card group">
-          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.1s">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <Car class="w-8 h-8 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">Driving Lessons</h3>
@@ -24,8 +24,8 @@
           </ul>
         </div>
         
-        <div class="card group">
-          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.2s">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <ClipboardCheck class="w-8 h-8 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">Driving Test Packages</h3>
@@ -39,8 +39,8 @@
           </ul>
         </div>
         
-        <div class="card group">
-          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.3s">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <Heart class="w-8 h-8 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">Medical Assessment</h3>
@@ -55,9 +55,9 @@
         </div>
       </div>
       
-      <div class="mt-12 text-center">
-        <div class="card inline-block max-w-md">
-          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+      <div class="mt-12 text-center animate-fade-in-up">
+        <div class="card inline-block max-w-md border-2 border-primary">
+          <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
             <RefreshCw class="w-8 h-8 text-white" />
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-4">Refresher Course</h3>
