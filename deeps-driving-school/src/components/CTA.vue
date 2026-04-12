@@ -6,11 +6,14 @@
         Join 3000+ successful students who got their Victorian license with our expert guidance
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <router-link to="/contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+        <router-link
+          :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+          class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+        >
           Book Your First Lesson
         </router-link>
-        <a href="tel:+61430191324" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg">
-          Call Now: +61 430 191 324
+        <a href="tel:+61430191324" class="btn-outline-light text-lg px-8 py-4 text-center focus-visible:ring-offset-primary">
+          Call 0430 191 324
         </a>
       </div>
     </div>

@@ -8,23 +8,33 @@
   }
   
   body {
-    @apply bg-gray-50;
+    @apply bg-gray-50 text-gray-900 antialiased;
   }
 }
 
 @layer components {
   .btn-primary {
     @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+    @apply disabled:opacity-60 disabled:pointer-events-none disabled:transform-none;
   }
   
   .btn-secondary {
     @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+    @apply disabled:opacity-60 disabled:pointer-events-none disabled:transform-none;
   }
   
   .btn-outline {
     @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
   }
-  
+
+  .btn-outline-light {
+    @apply border-2 border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900;
+  }
+
   .card {
     @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
   }
@@ -47,6 +57,14 @@
 }
 
 @layer utilities {
+  /* Line clamp (avoids needing the Tailwind plugin) */
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
   /* Blob Animation */
   @keyframes blob {
     0%, 100% {
@@ -141,5 +159,18 @@
   
   .shadow-glow-lg {
     box-shadow: 0 0 50px rgba(30, 64, 175, 0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .animate-blob,
+    .animate-fade-in-up,
+    .animate-slide-in-left,
+    .animate-pulse-glow {
+      animation: none !important;
+    }
   }
 }

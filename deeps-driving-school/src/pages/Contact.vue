@@ -67,7 +67,7 @@
             <p class="text-gray-600 mb-4">Multiple pickup locations</p>
             <p class="text-sm text-gray-500 mb-4">Box Hill to Frankston</p>
             <div class="mt-auto">
-              <button class="btn-primary w-full">View Areas</button>
+              <button type="button" class="btn-primary w-full" @click="viewAreas">View Areas</button>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
         <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Send us a Message</h2>
         
         <div class="max-w-2xl mx-auto">
-          <div class="card">
+          <div id="contact-form" class="card scroll-mt-28">
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
@@ -292,7 +292,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-20 bg-gray-50">
+    <section id="faq" class="py-20 bg-gray-50 scroll-mt-28">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-gray-900 text-center mb-16">Frequently Asked Questions</h2>
         
@@ -300,7 +300,10 @@
           <div v-for="(faq, index) in faqs" :key="index" class="card">
             <button 
               @click="toggleFAQ(index)"
-              class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors"
+              type="button"
+              class="w-full text-left flex justify-between items-center p-6 hover:bg-gray-50 transition-colors rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              :aria-expanded="faq.isOpen"
+              :aria-controls="`faq-answer-${index}`"
             >
               <h3 class="text-lg font-semibold text-gray-900">{{ faq.question }}</h3>
               <ChevronDown 
@@ -308,7 +311,7 @@
                 class="w-5 h-5 text-primary transition-transform"
               />
             </button>
-            <div v-if="faq.isOpen" class="px-6 pb-6">
+            <div v-if="faq.isOpen" :id="`faq-answer-${index}`" class="px-6 pb-6">
               <p class="text-gray-600">{{ faq.answer }}</p>
             </div>
           </div>
@@ -324,11 +327,11 @@
           Take the first step towards your Victorian driver license. Contact us today for a free consultation!
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:+61430191324" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+          <a href="tel:+61430191324" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
             <Phone class="w-5 h-5 inline mr-2" />
             Call Now: +61 430 191 324
           </a>
-          <button @click="scrollToForm" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg">
+          <button @click="scrollToForm()" type="button" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary">
             Send Message
           </button>
         </div>
@@ -338,12 +341,14 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, watch, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
 import { Phone, Mail, MapPin, Calendar, CheckCircle, ChevronDown } from 'lucide-vue-next'
 
 const isSubmitting = ref(false)
 const showSuccess = ref(false)
 const showError = ref(false)
+const route = useRoute()
 
 const form = reactive({
   firstName: '',
@@ -394,10 +399,60 @@ const toggleFAQ = (index) => {
   faqs.value[index].isOpen = !faqs.value[index].isOpen
 }
 
-const scrollToForm = () => {
-  // Scroll to the contact form
-  document.querySelector('.card form').scrollIntoView({ behavior: 'smooth' })
+const scrollToForm = ({ focus = true } = {}) => {
+  const el = document.getElementById('contact-form')
+  if (!el) return
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' })
+
+  if (focus) {
+    const focusTarget = el.querySelector('input, select, textarea')
+    if (focusTarget instanceof HTMLElement) {
+      focusTarget.focus({ preventScroll: true })
+    }
+  }
 }
+
+const viewAreas = async () => {
+  if (faqs.value[1]) {
+    faqs.value[1].isOpen = true
+  }
+
+  await nextTick()
+  const el = document.getElementById('faq')
+  if (!el) return
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' })
+}
+
+const VALID_SERVICES = new Set([
+  'driving-lessons',
+  'test-package',
+  'medical-assessment',
+  'refresher',
+  'advanced',
+  'not-sure'
+])
+
+const applyServiceFromQuery = async () => {
+  const raw = route.query.service
+  const service = Array.isArray(raw) ? raw[0] : raw
+  if (typeof service !== 'string' || !VALID_SERVICES.has(service)) return
+
+  form.service = service
+  await nextTick()
+  scrollToForm({ focus: false })
+}
+
+onMounted(() => {
+  void applyServiceFromQuery()
+})
+
+watch(() => route.query.service, () => {
+  void applyServiceFromQuery()
+})
 
 const handleSubmit = async () => {
   isSubmitting.value = true

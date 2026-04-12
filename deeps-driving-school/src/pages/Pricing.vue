@@ -62,7 +62,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book 1-Hour Lesson</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book 1-Hour Lesson
+            </router-link>
           </div>
 
           <!-- 90-Minute Lesson -->
@@ -95,7 +100,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book 90-Minute Lesson</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book 90-Minute Lesson
+            </router-link>
           </div>
 
           <!-- 5-Lesson Package -->
@@ -132,7 +142,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book 5-Lesson Package</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book 5-Lesson Package
+            </router-link>
           </div>
 
           <!-- 10-Lesson Package -->
@@ -169,7 +184,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book 10-Lesson Package</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book 10-Lesson Package
+            </router-link>
           </div>
         </div>
       </div>
@@ -214,7 +234,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full">Book Test Package</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'test-package' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book Test Package
+            </router-link>
           </div>
 
           <!-- Test + 2-Hour Lesson -->
@@ -254,7 +279,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full">Book Test Package</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'test-package' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book Test Package
+            </router-link>
           </div>
         </div>
       </div>
@@ -296,7 +326,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book Assessment</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'medical-assessment' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book Assessment
+            </router-link>
           </div>
 
           <!-- Medical Assessment through OT -->
@@ -329,7 +364,12 @@
               </li>
             </ul>
             
-            <button class="btn-primary w-full">Book OT Assessment</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'medical-assessment' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book OT Assessment
+            </router-link>
           </div>
         </div>
       </div>

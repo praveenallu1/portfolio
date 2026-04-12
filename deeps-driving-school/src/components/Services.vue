@@ -9,7 +9,7 @@
       </div>
       
       <div class="grid md:grid-cols-3 gap-8 mb-12">
-        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.1s">
+        <div class="card group border-l-4 border-l-transparent hover:border-l-primary animate-fade-in-up" style="animation-delay: 0.1s">
           <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <Car class="w-8 h-8 text-white" />
           </div>
@@ -24,7 +24,7 @@
           </ul>
         </div>
         
-        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.2s">
+        <div class="card group border-l-4 border-l-transparent hover:border-l-primary animate-fade-in-up" style="animation-delay: 0.2s">
           <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <ClipboardCheck class="w-8 h-8 text-white" />
           </div>
@@ -39,7 +39,7 @@
           </ul>
         </div>
         
-        <div class="card group hover:border-l-4 hover:border-primary animate-fade-in-up" style="animation-delay: 0.3s">
+        <div class="card group border-l-4 border-l-transparent hover:border-l-primary animate-fade-in-up" style="animation-delay: 0.3s">
           <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
             <Heart class="w-8 h-8 text-white" />
           </div>

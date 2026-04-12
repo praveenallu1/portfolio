@@ -83,7 +83,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full mt-6">Book Driving Lesson</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'driving-lessons' } }"
+              class="btn-primary w-full mt-6 text-center block"
+            >
+              Book Driving Lesson
+            </router-link>
           </div>
 
           <!-- VicRoads Test Packages -->
@@ -135,7 +140,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full mt-6">Book Test Package</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'test-package' } }"
+              class="btn-primary w-full mt-6 text-center block"
+            >
+              Book Test Package
+            </router-link>
           </div>
 
           <!-- Medical Assessment -->
@@ -184,7 +194,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full mt-6">Book Medical Assessment</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'medical-assessment' } }"
+              class="btn-primary w-full mt-6 text-center block"
+            >
+              Book Medical Assessment
+            </router-link>
           </div>
         </div>
       </div>
@@ -228,7 +243,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full">Contact for Refresher Course</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'refresher' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Contact for Refresher Course
+            </router-link>
           </div>
 
           <!-- Advanced Skills -->
@@ -263,7 +283,12 @@
               </ul>
             </div>
             
-            <button class="btn-primary w-full">Book Advanced Training</button>
+            <router-link
+              :to="{ path: '/contact', query: { service: 'advanced' } }"
+              class="btn-primary w-full text-center block"
+            >
+              Book Advanced Training
+            </router-link>
           </div>
         </div>
       </div>
